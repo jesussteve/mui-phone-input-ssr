@@ -406,28 +406,29 @@ class MaterialUiPhoneNumber extends React.Component {
   }
 
   handleFlagItemClick = (country) => {
-    const { formattedNumber, selectedCountry, onlyCountries } = this.state;
-    const { onChange } = this.props;
+    console.log('Flag clicking disabled', country);
+    // const { formattedNumber, selectedCountry, onlyCountries } = this.state;
+    // const { onChange } = this.props;
 
-    const currentSelectedCountry = selectedCountry;
-    const nextSelectedCountry = isString(country) ? find(onlyCountries, (countryItem) => countryItem.iso2 === country) : find(onlyCountries, country);
+    // const currentSelectedCountry = selectedCountry;
+    // const nextSelectedCountry = isString(country) ? find(onlyCountries, (countryItem) => countryItem.iso2 === country) : find(onlyCountries, country);
 
-    const unformattedNumber = formattedNumber.replace(' ', '').replace('(', '').replace(')', '').replace('-', '');
-    const newNumber = unformattedNumber.length > 1 ? unformattedNumber.replace(currentSelectedCountry.dialCode, nextSelectedCountry.dialCode) : nextSelectedCountry.dialCode;
+    // const unformattedNumber = formattedNumber.replace(' ', '').replace('(', '').replace(')', '').replace('-', '');
+    // const newNumber = unformattedNumber.length > 1 ? unformattedNumber.replace(currentSelectedCountry.dialCode, nextSelectedCountry.dialCode) : nextSelectedCountry.dialCode;
 
-    const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format);
+    // const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format);
 
-    this.setState({
-      anchorEl: null,
-      selectedCountry: nextSelectedCountry,
-      freezeSelection: true,
-      formattedNumber: newFormattedNumber,
-    }, () => {
-      this.cursorToEnd();
-      if (onChange) {
-        onChange(newFormattedNumber, this.getCountryData());
-      }
-    });
+    // this.setState({
+    //   anchorEl: null,
+    //   selectedCountry: nextSelectedCountry,
+    //   freezeSelection: true,
+    //   formattedNumber: newFormattedNumber,
+    // }, () => {
+    //   this.cursorToEnd();
+    //   if (onChange) {
+    //     onChange(newFormattedNumber, this.getCountryData());
+    //   }
+    // });
   }
 
   handleInputFocus = (e) => {
